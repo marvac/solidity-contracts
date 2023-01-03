@@ -1,0 +1,19 @@
+{
+  "name": "solidity-inbox-updated",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ganache-cli": "^6.12.2",
+    "mocha": "^10.2.0",
+    "solc": "^0.8.9",
+    "web3": "^1.8.1",
+    "@truffle/hdwallet-provider": "^1.7.0"
+  }
+}
