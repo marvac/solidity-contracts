@@ -1,7 +1,7 @@
 const walletProvider = require('@truffle/hdwallet-provider');
 const Web3 = require('web3');
 const { abi, evm } = require('./compile');
-const secrets = require('./app-settings');
+const secrets = require('./secrets');
 
 const provider = new walletProvider(secrets.accountMnemonic, secrets.infuraUrl);
 
