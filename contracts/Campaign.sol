@@ -37,15 +37,14 @@ contract Campaign {
         address recipient
     ) public restricted {
         require(approvers[msg.sender]);
-        Request memory request = Request({
-            description: description,
-            value: value,
-            recipient: recipient,
-            complete: false,
-            approvalCount: 0
-        });
-
-        requests.push(request);
+        uint _index = requests.length;
+        Request[] storage r = requests;
+        r.push();
+        r[_index].description = description;
+        r[_index].value = value;
+        r[_index].recipient = recipient;
+        r[_index].complete = false;
+        r[_index].approvalCount = 0;
     }
 
     function approveRequest(uint256 index) public {
@@ -55,5 +54,11 @@ contract Campaign {
 
         request.approvals[msg.sender] = true;
         request.approvalCount++;
+    }
+
+    function finalizeRequest(uint index) public restricted{
+        Request storage request = requests[index];
+        require(!request.complete);
+        request.complete = true;
     }
 }
